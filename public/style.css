@@ -1,0 +1,102 @@
+.box1{
+  text-align : center;
+  color: rgb(85, 0, 255);
+  height: 0px;
+  margin-bottom: 10px;
+}
+button{
+  margin-bottom: 20px;
+}
+h1{
+  font-size: 40px;
+  text-align: center;
+}
+.box3,.box4,.box5,.box6 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  border: 1px solid rgb(220, 228, 2);
+  margin : 10px;
+  width: 48%;
+  height: 300px; 
+  color : rgb(3, 3, 3);
+  text-align : center;
+  overflow: auto;
+  background-color: rgb(39, 88, 88);
+  -ms-overflow-style: none;
+}
+.box3{
+  float: left;
+  margin-right: auto;
+}
+.box4{
+  float: right;
+  margin-left: auto;
+}
+.box5{
+  height: 300px; 
+  float: left;
+  margin-right: auto;
+}
+.box6{
+  height: 300px; 
+  float: right;
+  margin-left: auto; 
+}
+form{
+  background-color: rgb(237, 196, 237);
+}
+html{
+  background-color: rgb(196, 188, 224);
+}
+::-webkit-scrollbar{
+  display:none;
+}
+a{
+  text-decoration-line: none;
+  color:white;
+  display: block;
+  font-size: 20px;
+}
+a:nth-child(odd){
+  padding:10px;
+}
+a:nth-child(even){
+  padding:10px;
+}
+.box3 a{
+  padding: 20px;
+  font:bold;
+}
+a:hover{
+  color: rgb(173, 171, 171);
+  background-color: white;
+}
+
+footer{
+  clear:both;
+  color:white;
+}
+p{
+  font:bold;
+}
+header{
+  color: white;
+  display: block;
+  margin: 0px;
+  position: absolute;
+  width: 47.2%;
+  height: 66px;
+  background-color: darkorange;
+}
+.firstA{
+  margin-top: 65px;
+}
+#screenshot{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+  z-index: 5;
+}
