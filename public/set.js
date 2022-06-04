@@ -26,7 +26,7 @@ function filterRegion(region){
   }
   console.log(regionList.innerHTML);
   if(regionList.innerHTML === ""){
-    regionList.innerHTML += "<a class='firstA'>맛없는 동네인듯? ㅡㅅㅡ;;</a>";
+    regionList.innerHTML += "<a class='firstA'>이 동네에는 맛집이 없네요</a>";
   }
 }
 
@@ -60,11 +60,12 @@ function displayResponse(){
     return;
   }
   clickCount++;
+  const word = prompt("찾을 맛집의 개수를 입력해주세요(최대 150)");
   var requestOptions = {
     method: 'GET',
     redirect: 'follow',
   };
-  fetch("http://localhost:3000/webapi", requestOptions)
+  fetch("http://localhost:3000/webapi?restNum=" + encodeURI(word), requestOptions)
   .then(response => response.text())
   .then(result => {
       console.log(result);

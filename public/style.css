@@ -1,13 +1,28 @@
-
 .box1{
-  text-align : center;
-  color: rgb(85, 0, 255);
-  height: 0px;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  color: rgb(44, 0, 133);
+  font-family: 'serif','Palatino Linotype';
+  background-color: rgb(238, 243, 210);
 }
-button{
-  margin-bottom: 20px;
+
+button {
+  display: inline-block;
+  padding: 0.8em 1.5em;
+  color: #b2876f;
+  margin: 0.5rem 0.5rem;
+  font-weight: bold;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  border: 1px solid #b2876f;
+  transition: 0.5s;
 }
+
+button:hover{
+  color: white;
+  background-position: 99% 50%;
+}
+
 h1{
   font-size: 40px;
   text-align: center;
@@ -43,9 +58,7 @@ h1{
   float: right;
   margin-left: auto; 
 }
-form{
-  background-color: rgb(237, 196, 237);
-}
+
 html{
   background-color: rgb(196, 188, 224);
 }
@@ -81,6 +94,7 @@ p{
   font:bold;
 }
 header{
+  box-sizing: border-box;
   color: white;
   display: block;
   margin: 0px;
@@ -88,10 +102,13 @@ header{
   width: 47.2%;
   height: 66px;
   background-color: darkorange;
+  -ms-overflow-style: none;
 }
+
 .firstA{
   margin-top: 65px;
 }
+
 #screenshot{
 	position:absolute;
 	border:1px solid #ccc;
