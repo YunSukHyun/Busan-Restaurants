@@ -60,7 +60,8 @@ function displayResponse(){
     return;
   }
   const word = prompt("찾을 맛집의 개수를 입력해주세요(최대 150)");
-  if(!Number.isInteger(parseInt(word)) || parseInt(word) < 1 || parseInt(word) > 150){
+  console.log(parseFloat(word));
+  if(!Number.isInteger(parseFloat(word)) || parseInt(word) < 1 || parseInt(word) > 150){
     alert("1-150 사이의 정수를 입력해주세요")
     return;
   }

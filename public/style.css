@@ -4,6 +4,8 @@
   color: rgb(44, 0, 133);
   font-family: 'serif','Palatino Linotype';
   background-color: rgb(238, 243, 210);
+  pointer-events: none;
+  user-select: none;
 }
 
 button {
@@ -103,6 +105,10 @@ header{
   height: 66px;
   background-color: darkorange;
   -ms-overflow-style: none;
+}
+
+.restaurant, .region {
+  cursor: pointer;
 }
 
 .firstA{
