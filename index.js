@@ -16,7 +16,7 @@ app.get('/webapi', (req, res) => {
       request(options, function (error, response) {
         if (error) throw new Error(error);
         // console.log(typeof(response));
-        console.log(response);
+        //console.log(response);
         
         res.send(response.body);
       });

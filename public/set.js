@@ -14,7 +14,7 @@ function filterRegion(region){
     return;
   }
   const selectedRegion = all.filter(r => r.GUGUN_NM === region);
-  console.log(selectedRegion);
+  //console.log(selectedRegion);
 
   for(let i = 0; i < selectedRegion.length; i++){
     const restName = selectedRegion[i].MAIN_TITLE;
@@ -24,7 +24,7 @@ function filterRegion(region){
     else
       regionList.innerHTML += "<a class='restaurant' onclick='showRestaurantInfo(this)'>" + restName + "</a>";
   }
-  console.log(regionList.innerHTML);
+  //console.log(regionList.innerHTML);
   if(regionList.innerHTML === ""){
     regionList.innerHTML += "<a class='firstA'>이 동네에는 맛집이 없네요</a>";
   }
@@ -40,7 +40,7 @@ function showRestaurantInfo(rest){
       break;
     }
   }
-  console.log(all[tmp]);
+  //console.log(all[tmp]);
   restInfo.innerHTML =  "";
   restInfo.innerHTML += "<a class='firstA'>상호명: " + all[tmp].MAIN_TITLE + "</a>";
   restInfo.innerHTML += "<a>가는길: " + all[tmp].ADDR1 + "</a>";
@@ -59,8 +59,12 @@ function displayResponse(){
     alert("중복 입력 방지");
     return;
   }
-  clickCount++;
   const word = prompt("찾을 맛집의 개수를 입력해주세요(최대 150)");
+  if(!Number.isInteger(parseInt(word)) || parseInt(word) < 1 || parseInt(word) > 150){
+    alert("1-150 사이의 정수를 입력해주세요")
+    return;
+  }
+  clickCount++;
   var requestOptions = {
     method: 'GET',
     redirect: 'follow',
@@ -68,7 +72,7 @@ function displayResponse(){
   fetch("http://localhost:3000/webapi?restNum=" + encodeURI(word), requestOptions)
   .then(response => response.text())
   .then(result => {
-      console.log(result);
+      //console.log(result);
       let tmp = JSON.parse(result).getFoodKr.item;
       for(let i = 0; i < tmp.length; i++){
         all.push(tmp[i]);
