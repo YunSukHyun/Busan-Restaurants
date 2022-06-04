@@ -6,10 +6,10 @@ function filterRegion(region){
   if(region==='all'){
     for(let i = 0; i < all.length; i++){
       if(i == 0){
-        regionList.innerHTML += "<a class='restaurant firstA'>" + all[i].MAIN_TITLE + "</a>";
+        regionList.innerHTML += "<a class='restaurant firstA' onclick='showRestaurantInfo(this)'>" + all[i].MAIN_TITLE + "</a>";
       }
       else
-        regionList.innerHTML += "<a class='restaurant'>" + all[i].MAIN_TITLE + "</a>";
+        regionList.innerHTML += "<a class='restaurant' onclick='showRestaurantInfo(this)'>" + all[i].MAIN_TITLE + "</a>";
     }
     return;
   }
@@ -40,12 +40,17 @@ function showRestaurantInfo(rest){
       break;
     }
   }
+  console.log(all[tmp]);
   restInfo.innerHTML =  "";
   restInfo.innerHTML += "<a class='firstA'>상호명: " + all[tmp].MAIN_TITLE + "</a>";
   restInfo.innerHTML += "<a>가는길: " + all[tmp].ADDR1 + "</a>";
   restInfo.innerHTML += "<a>연락처: " + all[tmp].CNTCT_TEL + "</a>";
   restInfo.innerHTML += "<a class='screenshot'>대표메뉴: " + all[tmp].RPRSNTV_MENU + "</a>";
   restInfo.innerHTML += "<a>소개: " + all[tmp].ITEMCNTNTS + "</a>";
+  if(all[tmp].USAGE_DAY_WEEK_AND_TIME !== "")
+    restInfo.innerHTML += "<a>운영시간: " + all[tmp].USAGE_DAY_WEEK_AND_TIME + "</a>";
+  if(all[tmp].HOMEPAGE_URL !== "")
+    restInfo.innerHTML += "<a href='" + all[tmp].HOMEPAGE_URL + "' target='homepage'>홈페이지: " + all[tmp].HOMEPAGE_URL + "</a>";
   kakaoMap(all[tmp].LAT, all[tmp].LNG);
   screenshotPreview(tmp);
 }
@@ -62,6 +67,7 @@ function displayResponse(){
   fetch("http://localhost:3000/webapi", requestOptions)
   .then(response => response.text())
   .then(result => {
+      console.log(result);
       let tmp = JSON.parse(result).getFoodKr.item;
       for(let i = 0; i < tmp.length; i++){
         all.push(tmp[i]);
