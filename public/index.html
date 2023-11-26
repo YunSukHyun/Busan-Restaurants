@@ -1,60 +1,69 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>부산 맛집 </title>   
-<link rel="stylesheet" href="./style.css">
-</head>
-<body>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="set.js"></script>
-<div class="box1">
-    <h1>부산 맛집 찾기</h1>
-</div>
-<hr>
-<form>
-    <div class="box3">
-        <header><h2>지역<hr></h2></header>
-            <a class="region firstA" onclick="filterRegion('all')">전체</a>
-            <a class="region" onclick="filterRegion('강서구')">강서구</a>
-            <a class="region" onclick="filterRegion('금정구')">금정구</a>
-            <a class="region" onclick="filterRegion('기장군')">기장군</a>
-            <a class="region" onclick="filterRegion('남구')">남구</a>
-            <a class="region" onclick="filterRegion('동구')">동구</a>
-            <a class="region" onclick="filterRegion('동래구')">동래구</a>
-            <a class="region" onclick="filterRegion('부산진구')">부산진구</a>
-            <a class="region" onclick="filterRegion('북구')">북구</a>
-            <a class="region" onclick="filterRegion('사상구')">사상구</a>
-            <a class="region" onclick="filterRegion('사하구')">사하구</a>
-            <a class="region" onclick="filterRegion('서구')">서구</a>
-            <a class="region" onclick="filterRegion('수영구')">수영구</a>
-            <a class="region" onclick="filterRegion('연제구')">연제구</a>
-            <a class="region" onclick="filterRegion('영도구')">영도구</a>
-            <a class="region" onclick="filterRegion('중구')">중구</a>
-            <a class="region" onclick="filterRegion('해운대구')">해운대구</a>
+  <head>
+    <meta charset="UTF-8" />
+    <title>부산 맛집</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="set.js"></script>
+    <div class="box1">
+      <h1>부산 맛집 찾기</h1>
     </div>
-    <div class="box4">
+    <hr />
+    <section class="box">
+      <div class="box3">
+        <header><h2>지역</h2></header>
+        <a class="region firstA" onclick="filterRegion('all')">전체</a>
+        <a class="region" onclick="filterRegion('강서구')">강서구</a>
+        <a class="region" onclick="filterRegion('금정구')">금정구</a>
+        <a class="region" onclick="filterRegion('기장군')">기장군</a>
+        <a class="region" onclick="filterRegion('남구')">남구</a>
+        <a class="region" onclick="filterRegion('동구')">동구</a>
+        <a class="region" onclick="filterRegion('동래구')">동래구</a>
+        <a class="region" onclick="filterRegion('부산진구')">부산진구</a>
+        <a class="region" onclick="filterRegion('북구')">북구</a>
+        <a class="region" onclick="filterRegion('사상구')">사상구</a>
+        <a class="region" onclick="filterRegion('사하구')">사하구</a>
+        <a class="region" onclick="filterRegion('서구')">서구</a>
+        <a class="region" onclick="filterRegion('수영구')">수영구</a>
+        <a class="region" onclick="filterRegion('연제구')">연제구</a>
+        <a class="region" onclick="filterRegion('영도구')">영도구</a>
+        <a class="region" onclick="filterRegion('중구')">중구</a>
+        <a class="region" onclick="filterRegion('해운대구')">해운대구</a>
+      </div>
+
+      <div class="box4">
         <header>
-            <h2>식당<hr></h2>
+          <h2>식당</h2>
         </header>
-        <p id="restaurants">
-            
-        </p>
-    </div>
-    <div class="box5">
-        <header><h2>정보<hr></h2></header>
-        <p id="restInfo">
-    
-        </p>
-    </div>
-    <div class="box6" id="map"></div>
-</form>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=47392ff7a8a20050220f510b9a46e65e"></script>
-<script src="map.js"></script>
+        <p id="restaurants"></p>
+      </div>
+
+      <div class="box5">
+        <header><h2>정보</h2></header>
+        <p id="restInfo"></p>
+      </div>
+      <div class="box6" id="map"></div>
+    </section>
+
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=47392ff7a8a20050220f510b9a46e65e"
+    ></script>
+    <script src="map.js"></script>
     <footer>
-        <hr><span>201741161 윤석현</span>
-        <button onclick="displayResponse()">맛집 불러오기</button>
+      <hr />
+      <span>201741161 윤석현</span>
+      <button onclick="displayResponse()">맛집 불러오기</button>
     </footer>
-    <iframe src="" width="99%" height="500px" name="homepage" title="Homepage"></iframe>
-</body>
+    <iframe
+      src=""
+      width="99%"
+      height="500px"
+      name="homepage"
+      title="Homepage"
+    ></iframe>
+  </body>
 </html>
