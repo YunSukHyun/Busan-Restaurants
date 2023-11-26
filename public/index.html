@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="set.js"></script>
     <div class="box1">
       <h1>부산 맛집 찾기</h1>
     </div>
@@ -48,22 +46,24 @@
       <div class="box6" id="map"></div>
     </section>
 
+    <footer>
+      <hr />
+      <span>클릭해서 맛집 불러오기</span>
+      <button onclick="displayResponse()">맛집 불러오기</button>
+    </footer>
+    <iframe
+      src=""
+      width="100%"
+      height="500px"
+      name="homepage"
+      title="Homepage"
+    ></iframe>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="set.js"></script>
     <script
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=47392ff7a8a20050220f510b9a46e65e"
     ></script>
     <script src="map.js"></script>
-    <footer>
-      <hr />
-      <span>201741161 윤석현</span>
-      <button onclick="displayResponse()">맛집 불러오기</button>
-    </footer>
-    <iframe
-      src=""
-      width="99%"
-      height="500px"
-      name="homepage"
-      title="Homepage"
-    ></iframe>
   </body>
 </html>
