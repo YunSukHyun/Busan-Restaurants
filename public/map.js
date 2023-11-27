@@ -1,9 +1,9 @@
 function kakaoMap(x, y) {
-  const mapContainer = document.getElementById("map"),
-    mapOption = {
-      center: new kakao.maps.LatLng(x, y),
-      level: 4,
-    };
+  const mapContainer = document.getElementById("map");
+  const mapOption = {
+    center: new kakao.maps.LatLng(x, y),
+    level: 4,
+  };
   const map = new kakao.maps.Map(mapContainer, mapOption);
   const markerPosition = new kakao.maps.LatLng(x, y);
   const marker = new kakao.maps.Marker({
