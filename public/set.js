@@ -1,7 +1,8 @@
-let all = new Array();
+const all = new Array();
 let clickCount = 0;
+
 function filterRegion(region) {
-  let regionList = document.getElementById("restaurants");
+  const regionList = document.getElementById("restaurants");
   regionList.innerHTML = "";
   if (region === "all") {
     for (let i = 0; i < all.length; i++) {
@@ -18,6 +19,7 @@ function filterRegion(region) {
     }
     return;
   }
+
   const selectedRegion = all.filter((r) => r.GUGUN_NM === region);
 
   for (let i = 0; i < selectedRegion.length; i++) {
@@ -33,43 +35,44 @@ function filterRegion(region) {
         restName +
         "</a>";
   }
-  //console.log(regionList.innerHTML);
+
   if (regionList.innerHTML === "") {
     regionList.innerHTML += "<a class='firstA'>이 동네에는 맛집이 없네요</a>";
   }
 }
 
 function showRestaurantInfo(rest) {
-  let restInfo = document.getElementById("restInfo");
-  let tmp;
+  const restInfo = document.getElementById("restInfo");
+  let idx;
   for (let i = 0; i < all.length; i++) {
     if (rest.innerHTML === all[i].MAIN_TITLE) {
-      tmp = i;
+      idx = i;
       break;
     }
   }
 
   restInfo.innerHTML = "";
   restInfo.innerHTML +=
-    "<a class='firstA'>상호명: " + all[tmp].MAIN_TITLE + "</a>";
-  restInfo.innerHTML += "<a>가는길: " + all[tmp].ADDR1 + "</a>";
-  restInfo.innerHTML += "<a>연락처: " + all[tmp].CNTCT_TEL + "</a>";
+    "<a class='firstA'>상호명: " + all[idx].MAIN_TITLE + "</a>";
+  restInfo.innerHTML += "<a>가는길: " + all[idx].ADDR1 + "</a>";
+  restInfo.innerHTML += "<a>연락처: " + all[idx].CNTCT_TEL + "</a>";
   restInfo.innerHTML +=
-    "<a class='screenshot'>대표메뉴: " + all[tmp].RPRSNTV_MENU + "</a>";
-  restInfo.innerHTML += "<a>소개: " + all[tmp].ITEMCNTNTS + "</a>";
-  if (all[tmp].USAGE_DAY_WEEK_AND_TIME !== "")
+    "<a class='screenshot'>대표메뉴: " + all[idx].RPRSNTV_MENU + "</a>";
+  restInfo.innerHTML += "<a>소개: " + all[idx].ITEMCNTNTS + "</a>";
+  if (all[idx].USAGE_DAY_WEEK_AND_TIME !== "")
     restInfo.innerHTML +=
-      "<a>운영시간: " + all[tmp].USAGE_DAY_WEEK_AND_TIME + "</a>";
-  if (all[tmp].HOMEPAGE_URL !== "")
+      "<a>운영시간: " + all[idx].USAGE_DAY_WEEK_AND_TIME + "</a>";
+  if (all[idx].HOMEPAGE_URL !== "")
     restInfo.innerHTML +=
       "<a href='" +
-      all[tmp].HOMEPAGE_URL +
+      all[idx].HOMEPAGE_URL +
       "' target='homepage'>홈페이지: " +
-      all[tmp].HOMEPAGE_URL +
+      all[idx].HOMEPAGE_URL +
       "</a>";
-  kakaoMap(all[tmp].LAT, all[tmp].LNG);
-  screenshotPreview(tmp);
+  kakaoMap(all[idx].LAT, all[idx].LNG);
+  screenshotPreview(idx);
 }
+
 function displayResponse() {
   if (clickCount > 0) {
     alert("중복 입력 방지");
@@ -86,7 +89,7 @@ function displayResponse() {
     return;
   }
   clickCount++;
-  var requestOptions = {
+  const requestOptions = {
     method: "GET",
     redirect: "follow",
   };
@@ -96,9 +99,9 @@ function displayResponse() {
   )
     .then((response) => response.text())
     .then((result) => {
-      let tmp = JSON.parse(result).getFoodKr.item;
-      for (let i = 0; i < tmp.length; i++) {
-        all.push(tmp[i]);
+      const items = JSON.parse(result).getFoodKr.item;
+      for (let i = 0; i < items.length; i++) {
+        all.push(items[i]);
       }
     })
     .catch((error) => console.log("error", error));
